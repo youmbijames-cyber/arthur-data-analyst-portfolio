@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Olympic Medals Analytics</title>
+<link rel="stylesheet" href="dashboards.css"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<header class="site-header"><div class="container"><a class="logo" href="../index.html">Arthur<span>.Data</span></a><nav><a href="../index.html">Portfolio</a></nav></div></header>
+<main class="container">
+<div class="project-hero">
+<a class="back-link" href="../index.html">← Back</a>
+<h1>Olympic Medals Analytics</h1>
+<p class="subtitle">Summer Games 2000–2024: weighted scores, country totals, USA–China gold rivalry.</p>
+<div class="skills"><span>SUMIF/SUMIFS</span><span>RANK</span><span>Weighted score</span></div>
+</div>
+<div class="kpi-grid">
+<div class="kpi"><div class="value">7</div><div class="label">Editions</div></div>
+<div class="kpi"><div class="value">286</div><div class="label">USA gold (cumul.)</div></div>
+<div class="kpi"><div class="value">251</div><div class="label">China gold (cumul.)</div></div>
+<div class="kpi"><div class="value">2008</div><div class="label">China home peak</div></div>
+</div>
+<section class="section"><h2>USA vs China — Gold by edition</h2><div class="chart-box"><div class="chart-wrap"><canvas id="c1"></canvas></div></div></section>
+<section class="section"><h2>Weighted score ranking</h2><div class="chart-box"><div class="chart-wrap"><canvas id="c2"></canvas></div></div></section>
+<section class="section"><h2>Key insights</h2><div class="insights"><ol>
+<li>The <strong>USA</strong> leads cumulative golds; <strong>China</strong> topped Beijing 2008.</li>
+<li>Weighted score (3–2–1) confirms US strength on total volume.</li>
+<li><strong>Great Britain</strong> peaked at London 2012 (host effect).</li>
+<li><strong>Japan</strong> improved sharply (Tokyo 2020 + Paris 2024).</li>
+</ol></div></section>
+</main>
+<footer><div class="container">Olympics Analytics · Portfolio</div></footer>
+<script>
+Chart.defaults.color='#8b9cb3';Chart.defaults.borderColor='#2d3a4f';
+new Chart(document.getElementById('c1'),{type:'line',data:{labels:['2000','2004','2008','2012','2016','2020','2024'],datasets:[{label:'USA Gold',data:[37,36,36,48,46,39,40],borderColor:'#3b82f6',tension:.25,pointRadius:4},{label:'China Gold',data:[28,32,48,39,26,38,40],borderColor:'#f59e0b',tension:.25,pointRadius:4}]},options:{responsive:true,maintainAspectRatio:false,scales:{y:{beginAtZero:true}}}});
+new Chart(document.getElementById('c2'),{type:'bar',data:{labels:['USA','China','GBR','Germany','Australia','Japan','France'],datasets:[{data:[1397,1229,794,606,627,584,538],backgroundColor:'#10b981',borderRadius:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}});
+</script>
+</body></html>

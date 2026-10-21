@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Renewable Energy Analytics</title>
+<link rel="stylesheet" href="dashboards.css"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<header class="site-header"><div class="container"><a class="logo" href="../index.html">Arthur<span>.Data</span></a><nav><a href="../index.html">Portfolio</a></nav></div></header>
+<main class="container">
+<div class="project-hero">
+<a class="back-link" href="../index.html">← Back</a>
+<h1>Renewable Energy Transition</h1>
+<p class="subtitle">Renewable share of electricity 2000–2023: gains, rankings, gap vs world average.</p>
+<div class="skills"><span>VLOOKUP logic</span><span>Gap analysis</span><span>Line + Bar</span></div>
+</div>
+<div class="kpi-grid">
+<div class="kpi"><div class="value">30.5%</div><div class="label">World 2023</div></div>
+<div class="kpi"><div class="value">+41 pts</div><div class="label">Germany gain</div></div>
+<div class="kpi"><div class="value">89%</div><div class="label">Brazil 2023</div></div>
+<div class="kpi"><div class="value">33%</div><div class="label">China 2023</div></div>
+</div>
+<section class="section"><h2>Share over time (%)</h2><div class="chart-box"><div class="chart-wrap"><canvas id="c1"></canvas></div></div></section>
+<section class="section"><h2>2023 ranking</h2><div class="chart-box"><div class="chart-wrap"><canvas id="c2"></canvas></div></div></section>
+<section class="section"><h2>Key insights</h2><div class="insights"><ol>
+<li>World renewable share rose from ~18% (2000) to ~30.5% (2023).</li>
+<li><strong>Germany</strong> gained ~41 pp — fastest transition in the panel.</li>
+<li><strong>Brazil</strong> leads via hydropower (&gt;80% historically).</li>
+<li><strong>China</strong> roughly doubled its share while scaling volume.</li>
+</ol></div></section>
+</main>
+<footer><div class="container">Renewables Analytics · Portfolio</div></footer>
+<script>
+const y=[2000,2005,2010,2015,2018,2020,2022,2023];
+Chart.defaults.color='#8b9cb3';Chart.defaults.borderColor='#2d3a4f';
+new Chart(document.getElementById('c1'),{type:'line',data:{labels:y,datasets:[{label:'World',data:[18,18.5,20,23.5,26,29,30,30.5],borderColor:'#8b9cb3',tension:.25},{label:'Germany',data:[7,11,18,30,38,45,46,48],borderColor:'#f59e0b',tension:.25},{label:'China',data:[16,16.5,18,24,28,30,32,33],borderColor:'#3b82f6',tension:.25},{label:'Brazil',data:[88,87,85,78,82,84,88,89],borderColor:'#10b981',tension:.25}]},options:{responsive:true,maintainAspectRatio:false}});
+new Chart(document.getElementById('c2'),{type:'bar',data:{labels:['Brazil','Germany','China','World','France','USA','India'],datasets:[{data:[89,48,33,30.5,26,24,24],backgroundColor:['#10b981','#f59e0b','#3b82f6','#8b9cb3','#38bdf8','#a78bfa','#f472b6'],borderRadius:6}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,max:100}}}});
+</script>
+</body></html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>World Population Analytics</title>
+<link rel="stylesheet" href="dashboards.css"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<header class="site-header"><div class="container"><a class="logo" href="../index.html">Arthur<span>.Data</span></a><nav><a href="../index.html">Portfolio</a></nav></div></header>
+<main class="container">
+<div class="project-hero">
+<a class="back-link" href="../index.html">← Back</a>
+<h1>World Population Analytics</h1>
+<p class="subtitle">Global population 1950–2024 by region: growth rates, regional shares, demographic transition.</p>
+<div class="skills"><span>Growth rates</span><span>Shares %</span><span>Line charts</span></div>
+</div>
+<div class="kpi-grid">
+<div class="kpi"><div class="value">8.12B</div><div class="label">World 2024</div></div>
+<div class="kpi"><div class="value">+220%</div><div class="label">Since 1950</div></div>
+<div class="kpi"><div class="value">~58%</div><div class="label">Asia share</div></div>
+<div class="kpi"><div class="value">&lt;10%</div><div class="label">Europe share</div></div>
+</div>
+<section class="section"><h2>World population (billions)</h2><div class="chart-box"><div class="chart-wrap"><canvas id="c1"></canvas></div></div></section>
+<section class="section"><h2>Regional share over time</h2><div class="chart-box"><div class="chart-wrap"><canvas id="c2"></canvas></div></div></section>
+<section class="section"><h2>Key insights</h2><div class="insights"><ol>
+<li>World population more than <strong>tripled</strong> from 2.5B to 8.1B.</li>
+<li><strong>Africa</strong> has the highest growth rates; Europe stagnates.</li>
+<li><strong>Asia</strong> remains ~58% of world population.</li>
+<li>Europe's share fell from ~22% (1950) to under 10% (2024).</li>
+</ol></div></section>
+</main>
+<footer><div class="container">Population Analytics · Portfolio</div></footer>
+<script>
+const y=[1950,1960,1970,1980,1990,2000,2010,2015,2020,2024];
+Chart.defaults.color='#8b9cb3';Chart.defaults.borderColor='#2d3a4f';
+new Chart(document.getElementById('c1'),{type:'line',data:{labels:y,datasets:[{label:'World (bn)',data:[2.54,3.02,3.70,4.46,5.33,6.14,6.96,7.43,7.84,8.12],borderColor:'#3b82f6',backgroundColor:'rgba(59,130,246,.15)',fill:true,tension:.25}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}}}});
+new Chart(document.getElementById('c2'),{type:'line',data:{labels:y,datasets:[{label:'Africa %',data:[9,9.4,9.9,10.7,11.8,13.2,15.1,16.1,17.4,18.4],borderColor:'#10b981',tension:.25},{label:'Asia %',data:[55.3,56.3,57.7,59,60.5,60.7,59.9,59.3,58.9,58.5],borderColor:'#f59e0b',tension:.25},{label:'Europe %',data:[21.6,20,17.8,15.6,13.5,11.8,10.6,10,9.5,9.1],borderColor:'#a78bfa',tension:.25}]},options:{responsive:true,maintainAspectRatio:false}});
+</script>
+</body></html>
